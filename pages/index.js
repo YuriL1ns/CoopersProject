@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import { useForm } from 'react-hook-form'
 import Router from 'next/router'
@@ -6,12 +6,22 @@ import { apiCoopersProject } from '../services/apicoopers'
 
 export default function Home() {
     const { register, handleSubmit } = useForm()
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
 
-    async function signIn(data) {
+    async function signIn() {
+        const user = {
+            email,
+            senha
+        }
+
         try {
-            const response = await apiCoopersProject.post('login', data)
-            console.log(response)
+            await apiCoopersProject.post('login', user)
+            console.log('login realizado')
             Router.push('/dash')
+
+            setEmail('')
+            setSenha('')
         } catch (e) {
             console.error('error', e)
         }
