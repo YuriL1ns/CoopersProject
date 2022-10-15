@@ -1,0 +1,66 @@
+{
+  "name": "coopersproject-nextjs",
+  "homepage": "",
+  "version": "1.0",
+  "description": "Coopers Project NextJS - A Frontend project based on NextJS, React, and tailwind css with login area coded by Yuri Lins",
+  "repository": "",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "@mui/material": "^5.10.8",
+    "@tailwindcss/forms": "^0.5.3",
+    "axios": "^1.1.2",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "next": "^12.3.1",
+    "nookies": "^2.5.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.37.0",
+    "react-imask": "^6.4.3",
+    "react-responsive-carousel": "^3.2.23",
+    "react-scroll": "^1.8.7",
+    "react-sortablejs": "^6.1.4",
+    "sortablejs": "^1.15.0",
+    "tailwindcss": "^3.1.8"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "next build",
+    "dev": "next dev",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm run dev",
+    "build:tailwind": "tailwind build styles/index.css -o styles/tailwind.css",
+    "heroku-postbuild": "NODE_ENV=dev npm install --omit --no-shrinkwrap && npm run build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "child_process": false
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "optionalDependencies": {
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.0",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.17"
+  }
+}
