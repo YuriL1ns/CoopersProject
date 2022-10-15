@@ -190,6 +190,7 @@ export default function ToDo() {
                                         <Checkbox
                                             {...label}
                                             defaultChecked
+                                            disabled
                                             className='cursor-grab'
                                         />
                                         {task.name}
