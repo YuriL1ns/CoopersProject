@@ -67,7 +67,7 @@ Atualmente o projeto oferece suporte aos seguintes navegadores:
 
 ### Social Media
 
-Instagram: <a href="https://www.instagram.com/yurilins_" target="_blank">https://www.instagram.com/yurilins_</a>
+Instagram: <a href="https://www.instagram.com/yurilins_/" target="_blank">https://www.instagram.com/yurilins_/</a>
 
 LinkedIn: <a href="https://www.linkedin.com/in/yuri-lins-304a0523a/" target="_blank">https://www.linkedin.com/in/yuri-lins-304a0523a/</a>
 
