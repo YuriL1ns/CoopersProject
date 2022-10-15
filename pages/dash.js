@@ -19,10 +19,10 @@ export default function Index() {
                         <p className='text-xl md:text-5xl leading-relaxed text-[#4AC959]'>
                             your daily jobs
                         </p>
-                        <p className='pt-8 md:pt-[50px] text-sm md:text-xl font-bold text-black'>
+                        <p className='pt-16 md:pt-[50px] text-sm md:text-xl font-bold text-black'>
                             The only way tp get things done
                         </p>
-                        <div className='w-full mt-[44px]'>
+                        <div className='w-full mt-[20px] md:mt-[44px]'>
                             <Link
                                 href='#'
                                 activeClass='active'
