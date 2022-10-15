@@ -65,6 +65,10 @@ Atualmente o projeto oferece suporte aos seguintes navegadores:
 
 -   Copyright 2022 <a href="https://www.linkedin.com/in/yuri-lins-304a0523a/" target="_blank">Yuri Lins</a>
 
+### Para a Realização de testes e visualização da Dashboard.
+Utilizar o e-mail: teste@teste.com
+E inserir a senha: teste123
+
 ### Social Media
 
 Instagram: <a href="https://www.instagram.com/yurilins_/" target="_blank">https://www.instagram.com/yurilins_/</a>
