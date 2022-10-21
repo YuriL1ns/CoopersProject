@@ -1,29 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import Head from 'next/head'
 import { useForm } from 'react-hook-form'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import { apiCoopersProject } from '../services/apicoopers'
+import { getCsrfToken } from 'next-auth/react'
+import ToastMessage from 'components/Toast'
+import { useSession } from 'next-auth/react'
 
-export default function Home() {
-    const { register, handleSubmit } = useForm()
+export async function getServerSideProps(context) {
+    return {
+        props: {
+            csrfToken: await getCsrfToken(context)
+        }
+    }
+}
+
+export default function SingUp({ csrfToken }) {
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
-    async function signIn() {
+    const notify = useCallback((type, message) => {
+        ToastMessage({ type, message })
+    }, [])
+
+    async function handleSubmit(event) {
+        event.preventDefault()
+        router.push('/dash')
+
         const user = {
-            email,
-            senha
+            email: email,
+            senha: senha
         }
 
         try {
-            await apiCoopersProject.post('login', user)
-            console.log('login realizado')
-            Router.push('/dash')
-
+            await fetch(process.env.NEXT_PUBLIC_BASE_URL_BACKEND, '/login', {
+                method: 'POST',
+                body: JSON.stringify(user),
+                headers: { 'Content-Type': 'application/json' }
+            })
             setEmail('')
             setSenha('')
-        } catch (e) {
-            console.error('error', e)
+        } catch (error) {
+            notify('error', 'ocorreu um erro no seu login!')
         }
     }
 
@@ -44,13 +63,22 @@ export default function Home() {
                     </div>
                     <form
                         className='mt-8 space-y-6'
-                        onSubmit={handleSubmit(signIn)}
+                        method='post'
+                        action='/api/auth/callback/credentials'
+                        onSubmit={handleSubmit}
                     >
                         <input
                             type='hidden'
-                            name='remember'
-                            defaultValue='true'
+                            name='csrfToken'
+                            defaultValue={csrfToken}
                         />
+                        <input type='hidden' name='action' value='login' />
+                        <input
+                            type='hidden'
+                            name='token'
+                            value={process.env.NEXT_PUBLIC_BASE_URL_BACKEND}
+                        />
+
                         <div className='rounded-md shadow-sm -space-y-px'>
                             <div>
                                 <label
@@ -60,7 +88,6 @@ export default function Home() {
                                     Email address
                                 </label>
                                 <input
-                                    {...register('email')}
                                     id='email-address'
                                     name='email'
                                     type='email'
@@ -75,7 +102,6 @@ export default function Home() {
                                     Password
                                 </label>
                                 <input
-                                    {...register('senha')}
                                     id='password'
                                     name='password'
                                     type='password'

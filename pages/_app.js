@@ -1,7 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
-import { AuthProvider } from '../components/context/AuthContext'
+import { SessionProvider } from 'next-auth/react'
 
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'styles/tailwind.css'
@@ -17,11 +17,11 @@ export default class MyApp extends App {
         return { pageProps }
     }
     render() {
-        const { Component, pageProps } = this.props
+        const { Component, session, pageProps } = this.props
         const Layout = Component.layout || (({ children }) => <>{children}</>)
 
         return (
-            <AuthProvider>
+            <SessionProvider session={session}>
                 <Head>
                     <meta
                         name='viewport'
@@ -32,7 +32,7 @@ export default class MyApp extends App {
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
-            </AuthProvider>
+            </SessionProvider>
         )
     }
 }
