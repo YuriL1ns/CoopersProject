@@ -102,7 +102,7 @@ export default function ToDo() {
                                 <div
                                     key={task.id}
                                     id={`simple-task-${task.id}`}
-                                    className='list-group-item lg:w-full flex md:flex  md:flex-wrap items-center justify-between'
+                                    className='list-group-item lg:w-full flex  items-center justify-between'
                                 >
                                     <div className='text-start cursor-grab flex items-center'>
                                         <Checkbox
@@ -199,7 +199,7 @@ export default function ToDo() {
                                 <div
                                     key={task.id}
                                     id={`simple-task-${task.id}`}
-                                    className='list-group-item lg:w-full flex md:flex  md:flex-wrap items-center justify-between'
+                                    className='list-group-item lg:w-full flex  items-center justify-between'
                                 >
                                     <p className='text-start cursor-grab flex items-center'>
                                         <Checkbox

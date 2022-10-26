@@ -13,13 +13,13 @@ export default function Index() {
             <section className='header flex w-full h-screen max-h-full'>
                 <div className='container mx-auto items-center flex flex-wrap'>
                     <div className='md:w-6/12 px-2 md:pr-4'>
-                        <h2 className='font-semibold text-3xl md:text-[84px] pt-0 md:pt-24 text-black md:pb-6'>
+                        <h2 className='font-semibold text-2xl md:text-[84px] pt-0 md:pt-24 text-black md:pb-6'>
                             Organize
                         </h2>
-                        <p className='text-2xl md:text-6xl leading-relaxed text-[#4AC959]'>
+                        <p className='text-lg md:text-6xl leading-relaxed text-[#4AC959]'>
                             your daily jobs
                         </p>
-                        <p className='pt-10 md:pt-[50px] text-sm md:text-2xl font-bold text-black'>
+                        <p className='pt-14 md:pt-[50px] text-sm md:text-2xl font-bold text-black'>
                             The only way tp get things done
                         </p>
                         <div className='w-full mt-[20px] md:mt-[44px]'>
@@ -43,7 +43,7 @@ export default function Index() {
                             alt='Coworking'
                         />
                     </div>
-                    <div className='w-full'>
+                    <div className='w-full pt-10'>
                         <img
                             className='z-20 mx-auto md:w-1/20 -mt-60 md:mt-0'
                             src='img/icon-scroll.png'
