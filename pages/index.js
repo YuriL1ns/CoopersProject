@@ -1,11 +1,8 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useContext } from 'react'
 import Head from 'next/head'
-import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import { apiCoopersProject } from '../services/apicoopers'
 import { getCsrfToken } from 'next-auth/react'
-import ToastMessage from 'components/Toast'
-import { useSession } from 'next-auth/react'
+import StoreContext from 'components/Context/Context'
 
 export async function getServerSideProps(context) {
     return {
@@ -15,35 +12,44 @@ export async function getServerSideProps(context) {
     }
 }
 
+function initialState() {
+    return { user: '', password: '' }
+}
+
+function login({ user, password }) {
+    if (user === 'teste@teste.com' && password === 'teste123') {
+        return { token: '1234' }
+    }
+    return { error: 'Usuário ou senha inválidos' }
+}
+
 export default function SingUp({ csrfToken }) {
+    const [values, setValues] = useState(initialState)
+    const [error, setError] = useState(null)
+    const { setToken } = useContext(StoreContext)
     const router = useRouter()
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
 
-    const notify = useCallback((type, message) => {
-        ToastMessage({ type, message })
-    }, [])
+    function onChange(event) {
+        const { value, name } = event.target
 
-    async function handleSubmit(event) {
+        setValues({
+            ...values,
+            [name]: value
+        })
+    }
+
+    function onSubmit(event) {
         event.preventDefault()
-        router.push('/dash')
 
-        const user = {
-            email: email,
-            senha: senha
+        const { token, error } = login(values)
+
+        if (token) {
+            setToken(token)
+            return router.push('/dash')
         }
 
-        try {
-            await fetch(process.env.NEXT_PUBLIC_BASE_URL_BACKEND, '/login', {
-                method: 'POST',
-                body: JSON.stringify(user),
-                headers: { 'Content-Type': 'application/json' }
-            })
-            setEmail('')
-            setSenha('')
-        } catch (error) {
-            notify('error', 'ocorreu um erro no seu login!')
-        }
+        setError(error)
+        setValues(initialState)
     }
 
     return (
@@ -61,12 +67,7 @@ export default function SingUp({ csrfToken }) {
                             alt='Workflow'
                         />
                     </div>
-                    <form
-                        className='mt-8 space-y-6'
-                        method='post'
-                        action='/api/auth/callback/credentials'
-                        onSubmit={handleSubmit}
-                    >
+                    <form onSubmit={onSubmit} className='mt-8 space-y-6'>
                         <input
                             type='hidden'
                             name='csrfToken'
@@ -89,12 +90,14 @@ export default function SingUp({ csrfToken }) {
                                 </label>
                                 <input
                                     id='email-address'
-                                    name='email'
+                                    name='user'
                                     type='email'
                                     autoComplete='email'
                                     required
                                     className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#4AC959] focus:border-[#4AC959] focus:z-10 sm:text-sm'
                                     placeholder='Insira seu E-mail'
+                                    onChange={onChange}
+                                    value={values.user}
                                 />
                             </div>
                             <div>
@@ -109,6 +112,8 @@ export default function SingUp({ csrfToken }) {
                                     required
                                     className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#4AC959] focus:border-[#4AC959] focus:z-10 sm:text-sm'
                                     placeholder='Senha'
+                                    onChange={onChange}
+                                    value={values.password}
                                 />
                             </div>
                         </div>
@@ -138,7 +143,9 @@ export default function SingUp({ csrfToken }) {
                                 </a>
                             </div>
                         </div>
-
+                        {error && (
+                            <div className='user-login__error'>{error}</div>
+                        )}
                         <div>
                             <button
                                 type='submit'

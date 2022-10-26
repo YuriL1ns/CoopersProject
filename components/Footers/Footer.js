@@ -29,7 +29,7 @@ export default function Footer() {
                             <h4 className='text-3xl font-semibold pb-4'>
                                 Need help?
                             </h4>
-                            <h5 className='text-3xl mt-0 font-semibold'>
+                            <h5 className='md:text-3xl mt-0 font-semibold'>
                                 coopers@coopers.pro
                             </h5>
                             <div className='flex flex-wrap items-center md:justify-between justify-center'>

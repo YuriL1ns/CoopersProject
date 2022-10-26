@@ -13,7 +13,7 @@ const indicatorStyles = {
 export default class NextJsCarousel extends Component {
     render() {
         return (
-            <div className='absolute w-full top-[60px] drop-shadow-2xl pl-10 md:pl-[20%]'>
+            <div className='absolute w-full top-[60px] drop-shadow-2xl pl-10 md:pl-[20%] mx-auto'>
                 <Carousel
                     className='bg-transparent'
                     style={indicatorStyles}
@@ -23,14 +23,20 @@ export default class NextJsCarousel extends Component {
                     showStatus={false}
                     slidesPerView={3}
                 >
-                    <div className='container flex gap-x-52 md:gap-x-6 bg-transparent w-full'>
-                        <div className='flex justify-center shadow-xl'>
+                    <div className='container flex gap-x-52 md:gap-x-6 bg-transparent w-full '>
+                        <div className='flex relative justify-center shadow-xl'>
                             <div className='rounded-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap.png'
@@ -57,13 +63,19 @@ export default class NextJsCarousel extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex justify-center shadow-xl'>
+                        <div className='flex relative justify-center shadow-xl'>
                             <div className='rounded-lg shadow-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap1.png'
@@ -97,6 +109,12 @@ export default class NextJsCarousel extends Component {
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap2.png'
@@ -124,15 +142,20 @@ export default class NextJsCarousel extends Component {
                             </div>
                         </div>
                     </div>
-
-                    <div className='hidden md:visible mx-auto md:flex gap-x-4 bg-transparent w-full'>
-                        <div className='flex justify-center shadow-xl'>
+                    <div className='hidden md:visible container md:flex gap-x-52 md:gap-x-6 bg-transparent w-full '>
+                        <div className='flex relative justify-center shadow-xl'>
                             <div className='rounded-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap.png'
@@ -159,13 +182,19 @@ export default class NextJsCarousel extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex justify-center shadow-xl'>
+                        <div className='flex relative justify-center shadow-xl'>
                             <div className='rounded-lg shadow-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap1.png'
@@ -192,13 +221,19 @@ export default class NextJsCarousel extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex justify-center shadow-xl'>
-                            <div className='rounded-lg shadow-lg bg-white max-w-sm'>
+                        <div className='justify-center shadow-xl'>
+                            <div className='rounded-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-[100px] top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap2.png'
@@ -226,15 +261,20 @@ export default class NextJsCarousel extends Component {
                             </div>
                         </div>
                     </div>
-
-                    <div className='hidden md:visible mx-auto md:flex gap-x-4  bg-transparent w-full'>
-                        <div className='flex justify-center shadow-xl'>
+                    <div className='hidden md:visible md:flex container gap-x-52 md:gap-x-6 bg-transparent w-full '>
+                        <div className='flex relative justify-center shadow-xl'>
                             <div className='rounded-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap.png'
@@ -261,13 +301,19 @@ export default class NextJsCarousel extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex justify-center shadow-xl'>
+                        <div className='flex relative justify-center shadow-xl'>
                             <div className='rounded-lg shadow-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap1.png'
@@ -294,13 +340,19 @@ export default class NextJsCarousel extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex justify-center shadow-xl'>
-                            <div className='rounded-lg shadow-lg bg-white max-w-sm'>
+                        <div className='justify-center shadow-xl'>
+                            <div className='rounded-lg bg-white max-w-sm'>
                                 <a
                                     href='#!'
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
+                                        <img
+                                            src='img/minilogo.png'
+                                            alt='bitmap'
+                                        />
+                                    </div>
                                     <img
                                         className='rounded-t-lg'
                                         src='img/brand/bitmap2.png'

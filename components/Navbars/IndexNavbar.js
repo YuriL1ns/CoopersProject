@@ -6,13 +6,17 @@ export default function Navbar(props) {
 
     return (
         <>
-            <nav className='top-0 fixed z-50 w-full px-2 py-3 navbar-expand-lg bg-white bg-opacity-[20%] shadow justify-center'>
-                <div className='container px-4 flex mx-auto'>
-                    <img className='w-6' src='/img/bg.svg' alt='LogoCoopers' />
+            <nav className='top-0 z-[99999] absolute w-full px-2 py-3 navbar-expand-lg bg-white bg-opacity-[0%]'>
+                <div className='container flex mx-auto items-center'>
+                    <img
+                        className='w-4 md:w-8'
+                        src='/img/bg.svg'
+                        alt='LogoCoopers'
+                    />
                     <div className='w-full relative flex flex-wrap justify-between lg:w-auto lg:static lg:block lg:justify-start'>
                         <Link href='/dash'>
                             <a
-                                className='text-black text-3xl p-2 font-bold leading-relaxed inline-block py-2 whitespace-nowrap'
+                                className='text-black text-xl md:text-5xl p-2 font-bold leading-relaxed inline-block py-2 whitespace-nowrap'
                                 href='/dash'
                             >
                                 coopers
@@ -39,7 +43,7 @@ export default function Navbar(props) {
                             <li className='flex items-center'>
                                 <Link href='/login'>
                                     <button
-                                        className='bg-black text-white hover:bg-[#4AC959] text-xs font-bold px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150'
+                                        className='bg-black text-white text-end hover:bg-[#4AC959] text-xs font-bold px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150'
                                         id='dropdownMenuButton2'
                                     >
                                         Logout

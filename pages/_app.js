@@ -1,6 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
+import { AuthProvider } from 'components/Context/AuthContext'
 import { SessionProvider } from 'next-auth/react'
 
 import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -21,18 +22,20 @@ export default class MyApp extends App {
         const Layout = Component.layout || (({ children }) => <>{children}</>)
 
         return (
-            <SessionProvider session={session}>
-                <Head>
-                    <meta
-                        name='viewport'
-                        content='width=device-width, initial-scale=1, shrink-to-fit=no'
-                    />
-                    <title>Coopers Project</title>
-                </Head>
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
-            </SessionProvider>
+            <AuthProvider>
+                <SessionProvider session={session}>
+                    <Head>
+                        <meta
+                            name='viewport'
+                            content='width=device-width, initial-scale=1, shrink-to-fit=no'
+                        />
+                        <title>Coopers Project</title>
+                    </Head>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </SessionProvider>
+            </AuthProvider>
         )
     }
 }

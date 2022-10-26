@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Checkbox } from '@mui/material'
 import { ReactSortable } from 'react-sortablejs'
+import Checkbox from '@mui/material/Checkbox'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
+import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye'
 
 export default function ToDo() {
     const [newText, setText] = useState()
@@ -65,26 +67,26 @@ export default function ToDo() {
     return (
         <div
             id='tasks-list'
-            className='flex flex-wrap gap-x-10 gap-y-10 justify-center'
+            className='flex flex-wrap gap-x-12 gap-y-10 justify-center'
         >
             <div
                 id='todo'
-                className='w-8/12 md:w-3/12 bg-white rounded-lg border-t-[2rem] border-[1px] border-[#E88D39] drop-shadow-xl'
+                className='w-8/12 md:w-3/12 h-full bg-white rounded-lg border-t-[2rem] border-[#E88D39] drop-shadow-xl'
             >
                 <div className='text-center'>
-                    <h1 className='font-bold text-black text-center text-2xl md:text-6xl'>
+                    <h1 className='font-bold text-black text-center text-3xl md:text-5xl md:py-4'>
                         To-do
                     </h1>
-                    <p className='text-black text-center text-xs md:text-2xl font-normal'>
+                    <p className='text-black text-center text-md md:text-2xl font-normal'>
                         Take a breath.
                     </p>
-                    <p className='text-black text-center text-xs md:text-2xl font-normal pb-10'>
-                        Start a doing.
+                    <p className='text-black text-center text-md md:text-2xl font-normal pb-10'>
+                        Start doing.
                     </p>
 
                     <div
                         id='list'
-                        className='list-group grid px-2 gap-y-2'
+                        className='list-group grid px-2 gap-y-2 cursor-grab active:cursor-grabbing text-sm md:text-lg '
                         type='card'
                     >
                         <ReactSortable
@@ -93,119 +95,129 @@ export default function ToDo() {
                             group='sharedlist'
                             animation={200}
                             delayOnTouchStart={true}
-                            delay={2}
-                            className='grid gap-y-2 cursor-grab active:cursor-grabbing'
+                            delay={1}
+                            className='grid gap-y-2'
                         >
                             {tasksTodo.map((task) => (
                                 <div
                                     key={task.id}
                                     id={`simple-task-${task.id}`}
-                                    className='list-group-item lg:w-full flex flex-wrap justify-between items-center gap-x-6 md:gap-x-20 border-2 border-[#E88D39] rounded-xl border-opacity-[0.3]'
+                                    className='list-group-item lg:w-full flex md:flex  md:flex-wrap items-center justify-between'
                                 >
-                                    <p className='text-start cursor-grab flex items-center'>
-                                        <i className='px-2 fa-solid fa-grip-vertical'></i>
+                                    <div className='text-start cursor-grab flex items-center'>
                                         <Checkbox
                                             {...label}
-                                            className='cursor-grab'
+                                            icon={<PanoramaFishEyeIcon />}
+                                            className='cursor-grab text-[#E88D39]'
                                         />
-                                        {task.name}
-                                    </p>
-                                    <div className='text-end'>
+                                        <div className='flex flex-wrap'>
+                                            {task.name}
+                                        </div>
+                                    </div>
+                                    <div className='text-xs px-2 cursor-pointer'>
                                         <span
                                             className='text-black'
                                             onClick={() =>
                                                 deleteTaskTodo(task.id)
                                             }
                                         >
-                                            <i
-                                                className='px-2 text-end fa fa-trash cursor-pointer'
-                                                aria-hidden='true'
-                                            ></i>
+                                            delete
                                         </span>
                                     </div>
                                 </div>
                             ))}
                         </ReactSortable>
-                    </div>
 
-                    <p className='flex mx-auto w-8/12 mt-10 items-center justify-center border-2 border-[#E88D39] rounded-xl border-opacity-[0.5]'>
-                        <i className='md:px-2 fa-solid fa-list-check text-black'></i>
-                        <input
-                            className='w-full md:px-4 text-black justify-center text-center'
-                            value={newText}
-                            onChange={(e) => setText(e.target.value)}
-                            placeholder='Add an item'
-                        />
+                        <p className='flex w-full'>
+                            <Checkbox
+                                {...label}
+                                icon={<PanoramaFishEyeIcon />}
+                                className='cursor-grab text-[#E88D39]'
+                            />
+                            <input
+                                className='w-full md:px-4 text-black justify-center text-start placeholder-[#E88D39]'
+                                value={newText}
+                                onChange={(e) => setText(e.target.value)}
+                                placeholder='Editing an item'
+                                onKeyPress={(e) => {
+                                    e.key === 'Enter' ? addTask() : null
+                                }}
+                            />
+
+                            <button
+                                className='hidden md:mx-1 text-[#E88D39] px-4 rounded-full font-semibold text-xl md:text-2xl '
+                                onClick={() => addTask()}
+                            >
+                                +
+                            </button>
+                        </p>
+
                         <button
-                            className='md:mx-2 text-white bg-black px-4 py-2 rounded-full font-semibold text-xl md:text-4xl'
-                            onClick={() => addTask()}
+                            className='bg-black font-bold text-white w-8/12 md:w-10/12 mx-auto py-2 rounded-md my-4 '
+                            onClick={() => deleteAllTodo()}
                         >
-                            +
+                            erase all
                         </button>
-                    </p>
-                    <button
-                        className='bg-black font-bold text-white w-8/12 md:w-10/12 py-2 rounded-md my-4 '
-                        onClick={() => deleteAllTodo()}
-                    >
-                        erase all
-                    </button>
+                    </div>
                 </div>
             </div>
 
             <div
                 id='done'
-                className='w-8/12 md:w-3/12 flex flex-col items-center bg-white rounded-lg border-t-[2rem] border-[1px] border-[#4AC959] drop-shadow-xl'
+                className='w-8/12 md:w-3/12 h-full flex flex-col items-center bg-white rounded-lg border-t-[2rem] border-[#4AC959] drop-shadow-xl '
             >
                 <div className='mx-auto'>
-                    <h1 className='font-bold text-black text-center text-2xl md:text-6xl'>
+                    <h1 className='font-bold text-black text-center text-xl py-4 md:text-5xl'>
                         Done
                     </h1>
                     <p className='text-black text-center text-xs md:text-2xl font-normal'>
                         Congratulations!
                     </p>
-                    <p className='text-black text-center font-bold text-xs md:text-2xl pb-10'>
-                        You have done tasks
+                    <p
+                        className='text-black text-center font-bold text-xs md:text-2xl pb-10
+                    '
+                    >
+                        You have done {tasksDone.length} tasks
                     </p>
                 </div>
-                <div id='list2' className='list-group flex px-2' type='card'>
+                <div
+                    id='list2'
+                    className='list-group flex px-2 cursor-grab active:cursor-grabbing text-sm md:text-lg'
+                    type='card'
+                >
                     <ReactSortable
                         list={tasksDone}
                         setList={setTasksDone}
                         group='sharedlist'
                         animation={200}
                         delayOnTouchStart={true}
-                        delay={2}
-                        className='grid gap-y-2 cursor-grab active:cursor-grabbing'
+                        delay={1}
+                        className='grid gap-y-2'
                     >
                         {tasksDone.map((task) => {
                             return (
                                 <div
                                     key={task.id}
                                     id={`simple-task-${task.id}`}
-                                    className='list-group-item w-full flex flex-wrap justify-between items-center gap-x-6 md:gap-x-20
-                                    border-2 border-[#4AC959] rounded-xl border-opacity-[0.3]'
+                                    className='list-group-item lg:w-full flex md:flex  md:flex-wrap items-center justify-between'
                                 >
                                     <p className='text-start cursor-grab flex items-center'>
-                                        <i className='px-2 fa-solid fa-grip-vertical'></i>
                                         <Checkbox
                                             {...label}
-                                            defaultChecked
-                                            disabled
-                                            className='cursor-grab'
+                                            icon={<CheckCircleIcon />}
+                                            checkedIcon={<CheckCircleIcon />}
+                                            className='cursor-grab text-[#4AC959]'
                                         />
                                         {task.name}
                                     </p>
-                                    <div className='text-end'>
+                                    <div className='text-end px-2 cursor-pointer'>
                                         <span
-                                            className='text-black'
+                                            className='text-black text-xs'
                                             onClick={() =>
                                                 deleteTaskDone(task.id)
                                             }
                                         >
-                                            <i
-                                                className='px-2 text-end fa fa-trash cursor-pointer'
-                                                aria-hidden='true'
-                                            ></i>
+                                            delete
                                         </span>
                                     </div>
                                 </div>
