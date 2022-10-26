@@ -228,7 +228,7 @@ export default class NextJsCarousel extends Component {
                                     data-mdb-ripple='true'
                                     data-mdb-ripple-color='light'
                                 >
-                                    <div className='absolute w-10 right-[100px] top-[17%] md:top-[45%]'>
+                                    <div className='absolute w-10 right-3 top-[17%] md:top-[45%]'>
                                         <img
                                             src='img/minilogo.png'
                                             alt='bitmap'
