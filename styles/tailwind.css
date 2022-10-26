@@ -346,7 +346,9 @@ textarea {
   color: inherit;
 }
 
-
+.checkicon {
+  color: #4AC959 !important; 
+} 
 
 pre,
 code,
