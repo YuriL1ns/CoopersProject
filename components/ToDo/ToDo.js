@@ -205,14 +205,20 @@ export default function ToDo() {
                                         <Checkbox
                                             {...label}
                                             icon={
-                                                <CheckCircleIcon fill='#4AC959' />
+                                                <CheckCircleIcon
+                                                    fill='#4AC959'
+                                                    className='fill-current text-[#4AC959] '
+                                                />
                                             }
                                             checkedIcon={
-                                                <CheckCircleIcon fill='#4AC959' />
+                                                <CheckCircleIcon
+                                                    fill='#4AC959'
+                                                    className='fill-current text-[#4AC959] '
+                                                />
                                             }
                                             id='checkicon'
                                             fill='#4AC959'
-                                            className='fill-current text-[#4AC959] important cursor-grab '
+                                            className='fill-current text-[#4AC959] cursor-grab '
                                         />
                                         {task.name}
                                     </p>
