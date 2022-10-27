@@ -107,7 +107,9 @@ export default function ToDo() {
                                     <div className='text-start cursor-grab flex items-center'>
                                         <Checkbox
                                             {...label}
-                                            icon={<PanoramaFishEyeIcon />}
+                                            icon={
+                                                <PanoramaFishEyeIcon className='cursor-grab text-[#E88D39]' />
+                                            }
                                             className='cursor-grab text-[#E88D39]'
                                         />
                                         <div className='flex flex-wrap'>
