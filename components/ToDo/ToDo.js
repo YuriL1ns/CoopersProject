@@ -209,7 +209,7 @@ export default function ToDo() {
                                             id='checkicon'
                                             fill='none'
                                             stroke='currentColor'
-                                            className=' text-[#4AC959] important cursor-grab '
+                                            className='fill-current stroke-current text-[#4AC959] important cursor-grab '
                                         />
                                         {task.name}
                                     </p>
