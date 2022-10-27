@@ -207,7 +207,7 @@ export default function ToDo() {
                                             icon={<CheckCircleIcon />}
                                             checkedIcon={<CheckCircleIcon />}
                                             id='checkicon'
-                                            fill='none'
+                                            fill='#4AC959'
                                             stroke='currentColor'
                                             className='fill-current text-[#4AC959] important cursor-grab '
                                         />
