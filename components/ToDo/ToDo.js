@@ -204,8 +204,12 @@ export default function ToDo() {
                                     <p className='text-start cursor-grab flex items-center'>
                                         <Checkbox
                                             {...label}
-                                            icon={<CheckCircleIcon />}
-                                            checkedIcon={<CheckCircleIcon />}
+                                            icon={
+                                                <CheckCircleIcon fill='#4AC959' />
+                                            }
+                                            checkedIcon={
+                                                <CheckCircleIcon fill='#4AC959' />
+                                            }
                                             id='checkicon'
                                             fill='#4AC959'
                                             className='fill-current text-[#4AC959] important cursor-grab '
