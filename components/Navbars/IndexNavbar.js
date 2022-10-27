@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
+import StoreContext from '../components/Context'
 
 export default function Navbar(props) {
     const [navbarOpen, setNavbarOpen] = React.useState('')
+    const { setToken } = useContext(StoreContext)
 
     return (
         <>
@@ -45,6 +47,7 @@ export default function Navbar(props) {
                                     <button
                                         className='bg-black text-white text-end hover:bg-[#4AC959] text-xs font-bold px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150'
                                         id='dropdownMenuButton2'
+                                        onClick={() => setToken(null)}
                                     >
                                         Logout
                                     </button>

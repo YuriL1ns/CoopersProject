@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import IndexNavbar from 'components/Navbars/IndexNavbar.js'
 import Footer from 'components/Footers/Footer.js'
 import SwiperCards from 'components/Swiper/index'
