@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Link from 'next/link'
-import StoreContext from '../components/Context'
+import StoreContext from '../Context/Context'
 
 export default function Navbar(props) {
     const [navbarOpen, setNavbarOpen] = React.useState('')
