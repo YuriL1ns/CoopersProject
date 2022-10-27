@@ -43,7 +43,7 @@ export default function Navbar(props) {
                     >
                         <ul className='flex flex-col lg:flex-row list-none lg:ml-auto'>
                             <li className='flex items-center'>
-                                <Link href='/login'>
+                                <Link href='/'>
                                     <button
                                         className='bg-black text-white text-end hover:bg-[#4AC959] text-xs font-bold px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150'
                                         id='dropdownMenuButton2'
